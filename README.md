@@ -21,8 +21,8 @@ Trigger a test run with payload arguments on the develop branch.
     ref: develop
     inputs: |
       { 
-        environment: uat.alpha.dev.bluescape.io
-        run-type: sanity
-        docker-tag: latest
+        environment: 'uat.alpha.dev.bluescape.io',
+        run_type: 'precommit',
+        docker-tag: 'latest'
       }
 ```
