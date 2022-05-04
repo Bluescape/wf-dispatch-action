@@ -12,7 +12,16 @@ See `action.yml` for a list of the arguments.
 
 ## Usage
 
-Trigger a test run with payload arguments on the develop branch.
+Trigger a workflow
+```yml
+- uses: bluescape/wf-dispatch-action@main
+  with:
+    github-token: ${{ env.GITHUBPAT }}
+    workflow: e2e-webc.yml
+    ref: develop
+```
+
+Trigger a workflow in the same repo with a payload
 ```yml
 - uses: bluescape/wf-dispatch-action@main
   with:
@@ -25,4 +34,15 @@ Trigger a test run with payload arguments on the develop branch.
         "run_type": "precommit",
         "docker-tag": "latest"
       }
+```
+
+Trigger a workflow in another repo
+```yml
+- uses: bluescape/wf-dispatch-action@main
+  with:
+    github-token: ${{ env.GITHUBPAT }}
+    workflow: test.yml
+    owner: landon-martin
+    repo: example-repo
+    ref: release
 ```
