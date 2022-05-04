@@ -1,0 +1,25 @@
+name: 'Workflow Dispatch Action'
+description: 'Trigger a workflow dispatch'
+inputs:
+  github-token:
+    description: Your github personal access token.
+    required: true
+  ref:
+    description: The reference to trigger the workflow on.
+    required: true
+  workflow:
+    description: The workflow under .github/workflows to use.
+    required: true
+  repo:
+    description: The repository name where the workflow lives, defaults to current.
+    required: false
+  owner:
+    description: Owner of the repository, defaults to current.
+    required: false
+  inputs:
+    description: The payload to pass the wf dispatch call.
+    required: false
+    default: '{}'
+runs:
+  using: "node16"
+  main: "src/index.js"
