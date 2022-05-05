@@ -7,7 +7,7 @@ async function main() {
   const workflow = core.getInput('workflow')
   const inputs = JSON.parse(core.getInput('inputs') || '{}')
   const owner = core.getInput('owner') || github.context.repo.owner
-  const repo = core.getInput('repo') || github.context.payload.repository.name
+  const repo = core.getInput('repo') || github.context.repo.repo || github.context.payload.repository.name
 
   console.log(`Workflow: ${workflow}\nReference: ${ref}\nInputs: ${JSON.stringify(inputs)}`)
 
