@@ -9,7 +9,7 @@ async function main() {
   const owner = core.getInput('owner') || github.context.repo.owner
   const repo = core.getInput('repo') || github.context.repo.repo || github.context.payload.repository.name
 
-  console.log(`Workflow: ${workflow}\nReference: ${ref}\nInputs: ${JSON.stringify(inputs)}`)
+  console.log(`Owner: ${owner}\nRepository: ${repo}\nWorkflow: ${workflow}\nReference: ${ref}\nInputs: ${JSON.stringify(inputs)}`)
 
   const octo = github.getOctokit(token)
   octo.rest.actions.createWorkflowDispatch({
